@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+mainClassName = 'Main'
+
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.mapdb/mapdb
+  implementation group: 'org.mapdb', name: 'mapdb', version: '3.0.7'
+
+}
+

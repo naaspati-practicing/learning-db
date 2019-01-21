@@ -1,0 +1,39 @@
+apply plugin:'java-library'
+
+repositories {
+    jcenter()
+}
+
+ext.JUNIT_VERSION = '5.3.2'
+ext.TRUTH_VERSION = '0.42'
+
+def wrap(group, version, String...names) { names.collect{"$group:$it:$version"} }
+
+dependencies {
+  testImplementation (* wrap('org.junit.jupiter', JUNIT_VERSION, 
+     'junit-jupiter-api',
+     // 'junit-jupiter-params', // required for Parameterized test
+     'junit-jupiter-engine'
+   ))
+
+   compile project(':_core')
+   testImplementation 'org.slf4j:slf4j-jdk14:1.8.0-beta1'   
+   testImplementation 'com.h2database:h2:1.4.197'
+   implementation (* wrap('org.jdbi', '+', 'jdbi3-core', 'jdbi3-sqlobject'))
+  
+   testImplementation 'com.google.truth:truth:'+TRUTH_VERSION
+   testImplementation 'com.google.truth.extensions:truth-java8-extension:'+TRUTH_VERSION
+}
+
+test {
+  useJUnitPlatform()
+  systemProperty 'java.util.logging.config.file','test-logging.properties'
+}
+
+/*
+default imports 
+
+import static org.junit.jupiter.api.Assertions.*;
+import static com.google.common.truth.Truth8.*;
+import static com.google.common.truth.Truth.*;
+*/
