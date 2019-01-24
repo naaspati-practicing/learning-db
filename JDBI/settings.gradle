@@ -7,6 +7,5 @@
  * in the user guide at https://docs.gradle.org/4.9/userguide/multi_project_builds.html
  */
 
-apply from:'../settings.gradle'
-
-rootProject.name = 'DeclarativeAPI'
+include ':_core'
+project(':_core').projectDir = file('_core')

@@ -1,0 +1,1 @@
+create table name(user_name varchar(255))

@@ -1,6 +1,4 @@
 apply plugin:'java-library'
 apply from: '../build.gradle'
+apply from: '../build2.gradle'
 
-dependencies {
-  compile project(":_core")
-}

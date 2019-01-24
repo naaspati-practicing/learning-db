@@ -16,7 +16,6 @@ public class DeclarativeAPIDemo extends JdbiInit {
 
 	@BeforeEach
 	void init_this() {
-		jdbi.installPlugin(new SqlObjectPlugin());
 		table_deleted = false;
 	}
 

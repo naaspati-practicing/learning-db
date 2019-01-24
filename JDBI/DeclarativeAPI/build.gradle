@@ -1,6 +1,13 @@
 apply plugin:'java-library'
 apply from: '../build.gradle'
+apply from: '../build2.gradle'
 
-dependencies {
-  compile project(":_core")
+def wrap(group, version, String...names) { names.collect{"$group:$it:$version"} }
+
+dependencies  {
+  implementation (* wrap('org.junit.jupiter', JUNIT_VERSION, 
+     'junit-jupiter-api',
+     // 'junit-jupiter-params', // required for Parameterized test
+     'junit-jupiter-engine'
+   ))
 }

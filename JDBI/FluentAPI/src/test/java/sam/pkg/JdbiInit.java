@@ -39,7 +39,7 @@ public abstract class JdbiInit {
 	static void stop() {
 		LOGGER.fine("jdbi stopped( "+order.incrementAndGet()+")");
 	}
-
+	
 	protected User[] users() {
 		return new User[] {
 				new User(0, "Alice"),
